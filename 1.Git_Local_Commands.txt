@@ -1,0 +1,136 @@
+Commands For Git To Work On Local Repositories
+
+To include a directory as git repository
+
+git init
+
+--------------------------------------------------------
+
+To get the status of files
+
+git status
+
+--------------------------------------------------------
+
+To add a file first time
+
+git add filename
+
+--------------------------------------------------------
+
+To add all the files first time
+
+git add .
+
+git add -A
+
+--------------------------------------------------------
+
+To commit
+
+git commit -m "Commit message"
+
+--------------------------------------------------------
+
+To add only a changed file
+
+git add -u Filename
+
+git add -u   (will add all the changed files)
+
+--------------------------------------------------------
+
+To check the commit logs
+
+git log
+
+a more condensed version is : git log --oneline
+
+--------------------------------------------------------
+
+To compare two commits
+
+for example we want to compare between these two commits
+
+commit 9285e1a010c5f3fa06a263b2148163e35f092ebb
+Author: Nishant Handa <nh124001@gmail.com>
+Date:   Fri Jun 24 18:50:56 2016 +0530
+
+    Second Commit For README.txt
+
+commit eae770d46f44cc1cb89c5cb22e32c617e90ea664
+Author: Nishant Handa <nh124001@gmail.com>
+Date:   Fri Jun 24 18:48:05 2016 +0530
+
+    First Commit for README.txt
+
+type : git diff eae770d46..9285e1a0
+
+----------------------------------------------------------------------------------------------------------------
+
+Another way of comparing two commits is by using HEAD, here HEAD represents the current latest version
+and it's one back previous version is HEAD~1 and two back previous version is HEAD~2
+
+git diff HEAD~1..HEAD
+
+and if i don't specify HEAD like "git diff HEAD~1.." then git assumes it as latest version 
+
+----------------------------------------------------------------------------------------------------------------
+
+To remove a file from git repository
+
+first remove the file from filesystem, then
+
+git add -A
+
+git commit -m "Message"
+
+----------------------------------------------------------------------------------------------------------------
+
+In order to revert changes to a file, checkout that file again from repository
+
+git checkout filename
+
+----------------------------------------------------------------------------------------------------------------
+
+In order to revert changes to multiple files, issue reset(hard reset) command
+
+git reset —hard
+
+There is a difference between reset hard and rest soft
+
+command is : git reset —soft HEAD~1
+
+Above mentioned command will bring the changes of HEAD~1 version, but does n’t commit them on the another hand
+reset hard will bring the changes to HEAD~1 version permanentally.
+
+----------------------------------------------------------------------------------------------------------------
+
+In Order to clean, non required files(like build files, log files), which we don’t want to push, we can issue clean command
+
+git clean -f
+
+----------------------------------------------------------------------------------------------------------------
+
+Usage of .gitignore file, if we want git to igonre a specific set of file, then we can add .gitignore file which
+includes detatils about files to be ignored
+
+sample .gitignore file : 
+
+Nishants-MacBook-Air:git_local_repo nishant$ cat .gitignore
+/logs/*.txt
+
+here we have mentioned that all the text files inside logs directory should be ignored.
+
+----------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
