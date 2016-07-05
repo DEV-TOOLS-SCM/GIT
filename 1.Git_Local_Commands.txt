@@ -1,4 +1,6 @@
-Commands For Git To Work On Local Repositories
+Sample commands to work with GIT locally via command line or terminal
+
+----------------------------------------------------------------------------------------------------------------
 
 To include a directory as git repository
 
